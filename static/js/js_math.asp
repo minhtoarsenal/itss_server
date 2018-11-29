@@ -1,0 +1,289 @@
+
+      <div id="mainLeaderboard" style="overflow:hidden;">
+        <!-- MainLeaderboard-->
+
+        <!--<pre>main_leaderboard, all: [728,90][970,90][320,50][468,60]</pre>-->
+        <div id="snhb-main_leaderboard-0"></div>
+       
+      </div>
+<h1>JavaScript <span class="color_h1">Math Object</span></h1>
+
+<hr>
+<p class="intro">The JavaScript Math object allows you to perform mathematical tasks on 
+numbers.</p>
+<hr>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+Math.PI;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;// returns 3.141592653589793
+</div>
+<a target="_blank" href="tryit?filename=tryjs_math_pi" class="w3-btn w3-margin-bottom">Try it Yourself &#xBB;</a>
+</div>
+
+<hr>
+<h2>Math.round()</h2>
+<p>Math.round(x) returns the value of x rounded to its nearest integer:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+Math.round(4.7);&#xA0;&#xA0;&#xA0;&#xA0;// returns 5<br>Math.round(4.4);
+&#xA0;&#xA0;&#xA0;// returns 4
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit?filename=tryjs_math_round" target="_blank">Try it Yourself &#xBB;</a>
+</div>
+
+<hr>
+<h2>Math.pow()</h2>
+<p>Math.pow(x, y) returns the value of x to the power of y:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+Math.pow(8, 2);&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; // returns 64
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit?filename=tryjs_math_pow" target="_blank">Try it Yourself &#xBB;</a>
+</div>
+
+<hr>
+<h2>Math.sqrt()</h2>
+<p>Math.sqrt(x) returns the square root of x:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+Math.sqrt(64);&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; // returns 8
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit?filename=tryjs_math_sqrt" target="_blank">Try it Yourself &#xBB;</a>
+</div>
+
+<hr>
+<div style="overflow:auto;text-align:center">
+<!-- MidContent -->
+
+  <!--<pre>mid_content, all: [300,250][336,280][728,90][970,250][970,90][320,50][468,60]</pre>-->
+  <div id="snhb-mid_content-0"></div>
+    
+</div>
+<hr>
+<h2>Math.abs()</h2>
+<p>Math.abs(x) returns the absolute (positive) value of x:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+Math.abs(-4.7);&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;// returns 4.7
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit?filename=tryjs_math_abs" target="_blank">Try it Yourself &#xBB;</a>
+</div>
+<hr>
+
+<h2>Math.ceil()</h2>
+<p>Math.ceil(x) returns the value of x rounded <strong>up</strong> to its nearest integer:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+Math.ceil(4.4);&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;// returns 5
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit?filename=tryjs_math_ceil" target="_blank">Try it Yourself &#xBB;</a>
+</div>
+<hr>
+
+<h2>Math.floor()</h2>
+<p>Math.floor(x) returns the value of x rounded <strong>down</strong> to its nearest integer:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+Math.floor(4.7);&#xA0;&#xA0;&#xA0;&#xA0;// returns 4
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit?filename=tryjs_math_floor" target="_blank">Try it Yourself &#xBB;</a>
+</div>
+<hr>
+
+<h2>Math.sin()</h2>
+<p>Math.sin(x) returns the sine (a value between -1 and 1) of the angle x (given in radians).</p>
+<p>If you want to use degrees instead of radians, you have to convert degrees to radians:</p>
+<p>Angle in radians = Angle in degrees x PI / 180.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+Math.sin(90 * Math.PI / 180);&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;// returns 1 (the sine of 90 degrees)
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit?filename=tryjs_math_sin" target="_blank">Try it Yourself &#xBB;</a>
+</div>
+<hr>
+
+<h2>Math.cos()</h2>
+<p>Math.cos(x) returns the cosine (a value between -1 and 1) of the angle x (given in radians).</p>
+<p>If you want to use degrees instead of radians, you have to convert degrees to radians:</p>
+<p>Angle in radians = Angle in degrees x PI / 180.</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+Math.cos(0 * Math.PI / 180);&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;// returns 1 (the cos of 0 degrees)
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit?filename=tryjs_math_cos" target="_blank">Try it Yourself &#xBB;</a>
+</div>
+<hr>
+<h2>Math.min() and Math.max()</h2>
+<p>Math.min() and Math.max() can be used to find the lowest or highest value in a list of arguments:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+Math.min(0, 150, 30, 20, -8, -200);&#xA0;&#xA0;// returns -200
+</div>
+<a target="_blank" href="tryit?filename=tryjs_math_min" class="w3-btn w3-margin-bottom">Try it Yourself &#xBB;</a>
+</div>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+Math.max(0, 150, 30, 20, -8, -200);&#xA0;&#xA0;// returns 150
+</div>
+<a target="_blank" href="tryit?filename=tryjs_math_max" class="w3-btn w3-margin-bottom">Try it Yourself &#xBB;</a>
+</div>
+<hr>
+
+<h2>Math.random()</h2>
+<p>Math.random() returns a random number between 0 (inclusive), and 1 
+(exclusive):</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+Math.random();&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;// returns a random number
+</div>
+<a class="w3-btn w3-margin-bottom" href="tryit?filename=tryjs_math_random" target="_blank">Try it Yourself &#xBB;</a>
+</div>
+
+<div class="w3-panel w3-note">
+<p>You will learn more about Math.random() in the next chapter of this tutorial.</p>
+</div>
+<hr>
+
+<h2>Math Properties (Constants)</h2>
+
+<p>JavaScript provides 8 mathematical constants that can be accessed with the Math object:</p>
+
+<div class="w3-example">
+<h3>Example</h3>
+<div class="w3-code notranslate jsHigh">
+Math.E&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;// returns Euler&apos;s number<br>
+Math.PI&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;// returns PI<br>
+Math.SQRT2&#xA0;&#xA0;&#xA0;&#xA0;// returns the square root of 2<br>
+Math.SQRT1_2&#xA0;&#xA0;// returns the square root of 1/2<br>
+Math.LN2&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;// returns the natural logarithm of 2<br>
+Math.LN10&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;// returns the natural logarithm of 10<br>
+Math.LOG2E&#xA0;&#xA0;&#xA0;&#xA0;// returns base 2 logarithm of E<br>
+Math.LOG10E&#xA0;&#xA0;&#xA0;// returns base 10 logarithm of E
+</div>
+<a target="_blank" href="tryit?filename=tryjs_math_constants" class="w3-btn w3-margin-bottom">Try it Yourself &#xBB;</a>
+</div>
+<hr>
+<h2>Math Constructor</h2>
+<p>Unlike other global objects, the Math object has no constructor. Methods and properties are static.</p>
+<p>All methods and properties (constants) can be used without creating a Math object first.</p>
+<hr>
+
+<h2>Math Object Methods</h2>
+<table class="w3-table-all notranslate">
+  <tbody><tr>
+    <th style="width:20%">Method</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>abs(x)</td>
+    <td>Returns the absolute value of x</td>
+  </tr>
+  <tr>
+    <td>acos(x)</td>
+    <td>Returns the arccosine of x, in radians</td>
+  </tr>
+  <tr>
+    <td>asin(x)</td>
+    <td>Returns the arcsine of x, in radians</td>
+  </tr>
+  <tr>
+    <td>atan(x)</td>
+    <td>Returns the arctangent of x as a numeric value between -PI/2 and PI/2 radians</td>
+  </tr>
+  <tr>
+    <td>atan2(y, x)</td>
+    <td>Returns the arctangent of the quotient of its arguments</td>
+  </tr>
+  <tr>
+    <td>ceil(x)</td>
+    <td>Returns the value of x rounded up to its nearest integer</td>
+  </tr>
+  <tr>
+    <td>cos(x)</td>
+    <td>Returns the cosine of x (x is in radians)</td>
+  </tr>
+  <tr>
+    <td>exp(x)</td>
+    <td>Returns the value of E<sup>x</sup></td>
+  </tr>
+  <tr>
+    <td>floor(x)</td>
+    <td>Returns the value of x rounded down to its nearest integer</td>
+  </tr>
+  <tr>
+    <td>log(x)</td>
+    <td>Returns the natural logarithm (base E) of x</td>
+  </tr>
+  <tr>
+    <td>max(x, y, z, ..., n)</td>
+    <td>Returns the number with the highest value</td>
+  </tr>
+  <tr>
+    <td>min(x, y, z, ..., n)</td>
+    <td>Returns the number with the lowest value</td>
+  </tr>
+  <tr>
+    <td>pow(x, y)</td>
+    <td>Returns the value of x to the power of y</td>
+  </tr>
+  <tr>
+    <td>random()</td>
+    <td>Returns a random number between 0 and 1</td>
+  </tr>
+  <tr>
+    <td>round(x)</td>
+    <td>Returns the value of x rounded to its nearest integer</td>
+  </tr>
+  <tr>
+    <td>sin(x)</td>
+    <td>Returns the sine of x (x is in radians)</td>
+  </tr>
+  <tr>
+    <td>sqrt(x)</td>
+    <td>Returns the square root of x</td>
+  </tr>
+  <tr>
+    <td>tan(x)</td>
+    <td>Returns the tangent of an angle</td>
+  </tr>
+</tbody></table>
+<hr>
+
+<h2>Complete Math Reference</h2>
+<p>For a complete reference, go to our <a href="/jsref/jsref_obj_math.asp">complete Math object reference</a>.</p>
+<p>The reference contains descriptions and examples of all Math properties and methods.</p>
+
+<hr>
+<h2>Test Yourself with Exercises!</h2>
+<p>
+<a class="w3-btn" href="exercise_js.asp?filename=exercise_js_math1" target="_blank">Exercise 1 &#xBB;</a>&#xA0;&#xA0;
+<a class="w3-btn" href="exercise_js.asp?filename=exercise_js_math2" target="_blank">Exercise 2 &#xBB;</a>&#xA0;&#xA0;
+<a class="w3-btn" href="exercise_js.asp?filename=exercise_js_math3" target="_blank">Exercise 3 &#xBB;</a>&#xA0;&#xA0;
+<a class="w3-btn" href="exercise_js.asp?filename=exercise_js_math4" target="_blank">Exercise 4 &#xBB;</a>
+</p>
+
+<br>
+
