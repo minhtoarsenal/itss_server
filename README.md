@@ -72,6 +72,35 @@ ng serve
 You can now open the app using any browser at the address [http://localhost:4200/login](http://localhost:4200/login)
 
 ![Preview](https://bitbucket.org/minhto/isd.ict.20181-05/raw/1fa1595b3bd6cf134edf43a5a8ce1c4f5146a08a/Project/week6/src/images/preview_1.png)
+
+
+
+After cloning this repository, please make sure that [django](https://www.djangoproject.com/) and [django-rest-framework](https://www.django-rest-framework.org/) are installed on your machine.
+```
+python -m django --version
+pip show djangorestframework
+```
+Run the local server
+
+```
+// under itss_server/
+
+python manage.py runserver 
+
+```
+Something similar to the following lines should appear on your terminal
+```
+Performing system checks...
+
+System check identified no issues (0 silenced).
+November 30, 2018 - 01:53:35
+Django version 2.1.1, using settings 'itss_server.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+
+```
+Now you can use Postman to send requests to test the server 
+![Preview](https://bitbucket.org/minhto/isd.ict.20181-05/raw/1fa1595b3bd6cf134edf43a5a8ce1c4f5146a08a/Project/week6/src/images/preview_1.png)
 ## For release
 Please change to the *release* branch
 ```
