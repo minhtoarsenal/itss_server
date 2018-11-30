@@ -100,7 +100,8 @@ Quit the server with CONTROL-C.
 
 ```
 Now you can use Postman to send requests to test the server 
-![Preview](https://bitbucket.org/minhto/isd.ict.20181-05/raw/1fa1595b3bd6cf134edf43a5a8ce1c4f5146a08a/Project/week6/src/images/preview_1.png)
+![Preview](https://github.com/minhtoarsenal/itss_server/blob/master/images/Screenshot%20from%202018-11-30%2009-20-25.png)
+    
 ## For release
 Please change to the *release* branch
 ```
