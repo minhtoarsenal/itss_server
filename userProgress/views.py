@@ -13,7 +13,7 @@ from userProgress.serializers import UserProgressSerializer, BadgeSerializer, Pr
 @api_view(['GET'])
 def userProgress_list(request):
     userProgressList = UserProgress.objects.all()
-    fields = ('id', 'userID', 'exp', 'badges', 'progresses')
+    fields = ('id', 'm_iUserID', 'm_iExp', 'm_asBadges', 'm_apProgresses')
         
     serializer = UserProgressSerializer(userProgressList, many=True, fields=fields)
     return Response(serializer.data)
@@ -22,12 +22,12 @@ def userProgress_list(request):
 @api_view(['PUT'])
 def badge_update(request):
     if request.method == 'PUT':
-        userID = request.data.get('userID', None)
-        userProgress = UserProgress.objects.get(userID=userID)
+        userID = request.data.get('m_iUserID', None)
+        userProgress = UserProgress.objects.get(m_iUserID=userID)
         userProgress.save()
 
-        fields = ('id', 'userID', 'exp', 'badges', 'progresses')
-        
+        fields = ('id', 'm_iUserID', 'm_iExp', 'm_asBadges', 'm_apProgresses')
+    
         serializer = UserProgressSerializer(userProgress, fields=fields)
 
         if serializer:
@@ -46,12 +46,12 @@ def badge_update(request):
 @api_view(['PUT'])
 def progress_update(request):
     if request.method == 'PUT':
-        userID = request.data.get('userID', None)
-        userProgress = UserProgress.objects.get(userID=userID)
+        userID = request.data.get('m_iUserID', None)
+        userProgress = UserProgress.objects.get(m_iUserID=userID)
         userProgress.save()
 
-        fields = ('id', 'userID', 'exp', 'badges', 'progresses')
- 
+        fields = ('id', 'm_iUserID', 'm_iExp', 'm_asBadges', 'm_apProgresses')
+    
         serializer = UserProgressSerializer(userProgress, fields=fields)
         if serializer:
             serializer = serializer.updateProgress(serializer.instance, request.data)

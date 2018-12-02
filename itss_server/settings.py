@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'user',
     'rest_framework',
-    'django_rest_passwordreset',
     'course',
     'userProgress',
     'django.contrib.admin',

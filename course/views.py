@@ -21,8 +21,8 @@ def course_list(request):
 
 @api_view(['GET'])
 def get_course_by_name(request):
-    courseName = request.GET.get('courseName', '')
-    course = Course.objects.get(courseName=courseName)
+    courseName = request.GET.get('m_sCourseName', '')
+    course = Course.objects.get(m_sCourseName=courseName)
     serializer = CourseSerializer(course)
     return Response(serializer.data)
 
@@ -62,9 +62,9 @@ def course_delete(request):
 @api_view(['PUT'])
 def course_update(request):
     if request.method == 'PUT':
-        courseName = request.data.get('courseName', None)
-        courseUrl = request.data.get('courseUrl', None)
-        course = Course.objects.get(courseName=courseName, courseUrl=courseUrl)
+        courseName = request.data.get('m_sCourseName', None)
+        courseUrl = request.data.get('m_sCourseUrl', None)
+        course = Course.objects.get(m_sCourseName=courseName, m_sCourseUrl=courseUrl)
         serializer = CourseSerializer(course, data=request.data)
 
         if serializer.is_valid():

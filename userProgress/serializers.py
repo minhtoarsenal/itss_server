@@ -14,7 +14,7 @@ class ProgressSerializer(serializers.ModelSerializer):
     class Meta:
         model = Progress
 
-        fields = ('id', 'courseUrl', 'progress')
+        fields = ('id', 'm_sCourseUrl', 'm_sProgress')
 
 class DynamicFieldsUserProgressSerializer(serializers.ModelSerializer):
     def __init__(self, *args, **kwargs):
@@ -34,21 +34,21 @@ class UserProgressSerializer(DynamicFieldsUserProgressSerializer):
 
     user = UserSerializer()
 
-    badges = BadgeSerializer(many=True)
+    m_asBadges = BadgeSerializer(many=True)
 
-    progresses = ProgressSerializer(many=True)
+    m_apProgresses = ProgressSerializer(many=True)
 
     class Meta: 
 
         model = UserProgress
 
-        fields = ('id', 'user', 'userID', 'exp', 'badges', 'progresses')
+        fields = ('id', 'user', 'm_iUserID', 'm_iExp', 'm_asBadges', 'm_apProgresses')
 
 
     def updateBadge(self, instance, validated_data):
-        badges_data = validated_data.pop('badges')
-        instance.userID = validated_data.get('userID', instance.userID)
-        instance.exp = validated_data.get('exp', instance.exp)
+        badges_data = validated_data.pop('m_asBadges')
+        instance.m_iUserID = validated_data.get('m_iUserID', instance.m_iUserID)
+        instance.m_iExp = validated_data.get('m_iExp', instance.m_iExp)
         instance.save()
 
         for badge_data in badges_data:
@@ -64,17 +64,17 @@ class UserProgressSerializer(DynamicFieldsUserProgressSerializer):
 
 
     def updateProgress(self, instance, validated_data):
-        progresses_data = validated_data.pop('progresses')
-        instance.userID = validated_data.get('userID', instance.userID)
-        instance.exp = validated_data.get('exp', instance.exp)
+        progresses_data = validated_data.pop('m_apProgresses')
+        instance.m_iUserID = validated_data.get('m_iUserID', instance.m_iUserID)
+        instance.m_iExp = validated_data.get('m_iExp', instance.m_iExp)
         instance.save()
 
         for progress_data in progresses_data:
             progress_data_id = progress_data.get('id', None)
             if progress_data_id:
                 progress = Progress.objects.get(id=progress_data_id)
-                progress.courseUrl = progress_data.get('courseUrl', progress.courseUrl)
-                progress.progress = progress_data.get('progress', progress.progress)
+                progress.m_sCourseUrl = progress_data.get('m_sCourseUrl', progress.m_sCourseUrl)
+                progress.m_sProgress = progress_data.get('m_sProgress', progress.m_sProgress)
                 progress.save()
             else:
                 Progress.objects.create(userProgress=instance, **progress_data)

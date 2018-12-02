@@ -7,18 +7,18 @@ class ModuleSerializer(serializers.ModelSerializer):
     class Meta: 
         model = Module
 
-        fields = ('id', 'name', 'url')
+        fields = ('id', 'm_sName', 'm_sUrl')
 
 class CourseSerializer(serializers.ModelSerializer):
-    modules = ModuleSerializer(many=True)
+    m_acModules = ModuleSerializer(many=True)
     
     class Meta: 
         model = Course
-        fields = ('id', 'courseName', 'courseUrl', 'modules')
+        fields = ('id', 'm_sCourseName', 'm_sCourseUrl', 'm_acModules')
 
     def create(self, validated_data):
         
-        modules_data = validated_data.pop('modules')
+        modules_data = validated_data.pop('m_acModules')
         course = Course.objects.create(**validated_data)
         for module_data in modules_data:
             Module.objects.create(course=course, **module_data)
@@ -26,22 +26,22 @@ class CourseSerializer(serializers.ModelSerializer):
         return course 
 
     def delete(self, validated_data):
-        courseName = validated_data.pop('courseName') 
-        course = Course.objects.filter(courseName=courseName).delete()
+        courseName = validated_data.pop('m_sCourseName') 
+        course = Course.objects.filter(m_sCourseName=courseName).delete()
         return course         
 
     def update(self, instance, validated_data):
-        modules_data = validated_data.pop('modules')
-        instance.courseName = validated_data.get('courseName', instance.courseName)
-        instance.courseUrl = validated_data.get('courseUrl', instance.courseUrl)
+        modules_data = validated_data.pop('m_acModules')
+        instance.m_sCourseName = validated_data.get('m_sCourseName', instance.m_sCourseName)
+        instance.m_sCourseUrl = validated_data.get('m_sCourseUrl', instance.m_sCourseUrl)
         instance.save()
   
         for module_data in modules_data:
             module_data_id = module_data.get('id', None)
             if module_data_id:
                 module = Module.objects.get(id=module_data_id)
-                module.name = module_data.get('name', module.name)
-                module.url = module_data.get('url', module.url)
+                module.m_sName = module_data.get('m_sName', module.m_sName)
+                module.m_sUrl = module_data.get('m_sUrl', module.m_sUrl)
                 module.save()
             else:
                 Module.objects.create(course=instance, **module_data)

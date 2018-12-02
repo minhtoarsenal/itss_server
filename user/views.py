@@ -99,10 +99,7 @@ def user_register(request):
             serializer = UserSerializer(user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-        return Response({
-            'status': 'Bad request', 
-            'message': 'Course could not be created with received data.'
-        }, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(['POST'])
@@ -111,30 +108,31 @@ def user_authenticate(request):
                 
         data = json.loads(request.body)
 
-        username = data.get('username', None)
-        password = data.get('password', None)
+        m_sUsername = data.get('m_sUsername', None)
+        m_sPassword = data.get('m_sPassword', None)
 
-        user = authenticate(username=username, password=password)
+        user = authenticate(username=m_sUsername, password=m_sPassword)
 
         if user is not None:
             userID = user.user_id
             
-            fields = ('id', 'userID', 'exp', 'badges', 'progresses')
+            fields = ('id', 'm_iUserID', 'm_iExp', 'm_asBadges', 'm_apProgresses')
+            
             try:
-                userProgress = UserProgress.objects.get(userID=userID)    
+                userProgress = UserProgress.objects.get(m_iUserID=userID)    
                 userProgress.save()
                 serializer = UserProgressSerializer(userProgress, fields=fields)
 
                 return Response({
                     'success': 'True', 
-                    'admin': user.is_admin,
+                    'admin': user.m_isAdmin,
                     'progress': serializer.data
                 }, status=status.HTTP_202_ACCEPTED)
             except ObjectDoesNotExist:
                 # userProgress = UserProgress.createUserProgress(userID)
                 initiated_value = {
-                    'exp': 0,
-                    'userID': userID
+                    'm_iExp': 0,
+                    'm_iUserID': userID
                 }
                 userProgress = UserProgress.objects.create(**initiated_value)
                 # Badge.objects.create(userProgress=userProgress)
@@ -143,7 +141,7 @@ def user_authenticate(request):
                 new_serializer = UserProgressSerializer(userProgress, fields=fields)
                 return Response({
                     'success': 'True', 
-                    'admin': user.is_admin,
+                    'admin': user.m_isAdmin,
                     'progress': new_serializer.data
                 }, status=status.HTTP_202_ACCEPTED)
             # elif userProgress: 
@@ -161,9 +159,9 @@ def user_changePass(request):
     if request.method == 'PUT':
         data = json.loads(request.body)
 
-        username = data.get('username', None)
-        old_password = data.get('old_password', None)
-        new_password = data.get('new_password', None)
+        username = data.get('m_sUsername', None)
+        old_password = data.get('m_sOldPassword', None)
+        new_password = data.get('m_sNewPassword', None)
 
         user = authenticate(username=username, password=old_password)
 
@@ -183,10 +181,10 @@ def user_changePass(request):
 @api_view(['POST'])
 def user_delete(request):
     if request.method == 'POST':
-        username = request.data.get('username', None)
-        password = request.data.get('password', None)
+        username = request.data.get('m_sUsername', None)
+        password = request.data.get('m_sPassword', None)
 
-        user = authenticate(username=username, password=password)
+        user = authenticate(m_sUsername=username, m_sPassword=password)
 
         if user is not None:
             user.delete()
