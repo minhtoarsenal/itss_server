@@ -17,7 +17,6 @@ Including another URLconf
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import path
-from rest_framework_nested import routers
 from django.conf.urls import include, url
 from user.views import user_list, user_register, user_authenticate
 from user.views import user_changePass, user_delete, user_delete_all
@@ -25,9 +24,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 from course.views import course_list, course_register, course_delete, course_update, get_course_by_name
 from userProgress.views import userProgress_list, badge_update, progress_update
-# from user.views import UserViewSet, LoginView, LogoutView
-# router = routers.SimpleRouter()
-# router.register(r'register', UserViewSet)
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
