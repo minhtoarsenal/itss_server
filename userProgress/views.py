@@ -54,6 +54,7 @@ def progress_update(request):
     
         serializer = UserProgressSerializer(userProgress, fields=fields)
         if serializer:
+            
             serializer = serializer.updateProgress(serializer.instance, request.data)
             return Response({
                 'success': 'true',
@@ -64,3 +65,4 @@ def progress_update(request):
             'message': 'Progress could not be updated with received data.'
         }, status=status.HTTP_400_BAD_REQUEST)
        
+

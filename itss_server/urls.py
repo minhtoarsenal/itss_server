@@ -51,7 +51,7 @@ urlpatterns = [
 
     url(r'^api/v1/userProgresses/list', userProgress_list, name='list'),
     url(r'^api/v1/userProgresses/updateBadge', badge_update, name='updateBadge'),
-    url(r'^api/v1/userProgresses/updateProcess', progress_update, name='updateProcess'),
+    url(r'^api/v1/userProgresses/updateProgress', progress_update, name='updateProcess'),
     
    
 ]

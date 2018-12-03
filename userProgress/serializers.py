@@ -14,7 +14,7 @@ class ProgressSerializer(serializers.ModelSerializer):
     class Meta:
         model = Progress
 
-        fields = ('id', 'm_sCourseUrl', 'm_sProgress')
+        fields = ('m_sCourseUrl', 'm_sProgress')
 
 class DynamicFieldsUserProgressSerializer(serializers.ModelSerializer):
     def __init__(self, *args, **kwargs):
@@ -70,13 +70,12 @@ class UserProgressSerializer(DynamicFieldsUserProgressSerializer):
         instance.save()
 
         for progress_data in progresses_data:
-            progress_data_id = progress_data.get('id', None)
-            if progress_data_id:
-                progress = Progress.objects.get(id=progress_data_id)
-                progress.m_sCourseUrl = progress_data.get('m_sCourseUrl', progress.m_sCourseUrl)
+            progress_data_url = progress_data.get('m_sCourseUrl', None)
+            try:
+                progress = Progress.objects.get(m_sCourseUrl=progress_data_url)
                 progress.m_sProgress = progress_data.get('m_sProgress', progress.m_sProgress)
                 progress.save()
-            else:
+            except Progress.DoesNotExist:
                 Progress.objects.create(userProgress=instance, **progress_data)
 
         return instance

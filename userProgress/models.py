@@ -22,7 +22,7 @@ class Badge(models.Model):
     badge = models.CharField(max_length=40)
 
 class Progress(models.Model):
-    m_sCourseUrl = models.CharField(max_length=40)
+    m_sCourseUrl = models.CharField(max_length=40, unique=True, primary_key=True)
     m_sProgress = models.CharField(max_length=40)
     userProgress = models.ForeignKey(UserProgress, related_name='m_apProgresses', on_delete=models.CASCADE, blank=True, null=True)
 
