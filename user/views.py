@@ -98,7 +98,7 @@ def user_register(request):
             user.save()
             serializer = UserSerializer(user)
             return Response({
-                    "success": True,
+                    "success": 'true',
                     "message": "User registered successfully"
             }, status=status.HTTP_201_CREATED)
 
@@ -130,7 +130,7 @@ def user_authenticate(request):
                 serializer = UserProgressSerializer(userProgress, fields=fields)
 
                 return Response({
-                    'success': 'True', 
+                    'success': 'true', 
                     'admin': user.m_isAdmin,
                     'progress': serializer.data
                 }, status=status.HTTP_202_ACCEPTED)
@@ -146,7 +146,7 @@ def user_authenticate(request):
                 userProgress.save()
                 new_serializer = UserProgressSerializer(userProgress, fields=fields)
                 return Response({
-                    'success': 'True', 
+                    'success': 'true', 
                     'admin': user.m_isAdmin,
                     'progress': new_serializer.data
                 }, status=status.HTTP_202_ACCEPTED)
@@ -154,8 +154,8 @@ def user_authenticate(request):
  
         else:
             return Response({
-                'status': 'Unauthorized',
-                'message': 'Username/password combination invalid.'
+                'success': 'false',
+                'message': 'Wrong username or password'
             }, status=status.HTTP_401_UNAUTHORIZED)
 
 
