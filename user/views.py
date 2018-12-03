@@ -103,8 +103,8 @@ def user_register(request):
             }, status=status.HTTP_201_CREATED)
 
         return Response({
-            "success": False,
-            "message": serializer.errors
+            'success': 'false',
+            'message': serializer.errors
         }, status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -176,11 +176,14 @@ def user_changePass(request):
             user.set_password(new_password)
             user.save()
             serializer = UserSerializer(user)    
-            return Response(serializer.data, status=status.HTTP_200_OK)
+            return Response({ 
+                'success': 'true', 
+                'message': 'Successfully changed user password' 
+            }, status=status.HTTP_200_OK)
         else:
-            return Response({
-                'status': 'Unauthorized',
-                'message': 'Username/password combination invalid.'
+            return Response({ 
+                'success': 'false',
+                'message': 'Failed to change user password'
             }, status=status.HTTP_401_UNAUTHORIZED)
       
 
@@ -195,12 +198,12 @@ def user_delete(request):
         if user is not None:
             user.delete()
             return Response({
-                'status': 'Deleted',
+                'success': 'true',
                 'message': 'User deleted.'
             }, status=status.HTTP_200_OK)
         else: 
             return Response({
-            'status': 'Unauthorized',
+            'success': 'false',
             'message': 'Username/password combination invalid.'
         }, status=status.HTTP_401_UNAUTHORIZED)
 
@@ -211,7 +214,7 @@ def user_delete_all(request):
         all_user = User.objects.all()
         all_user.delete()
         return Response({
-            'status': 'Deleted All',
+            'success': 'true',
             'message': 'All users deleted.'
         }, status=status.HTTP_200_OK)
     

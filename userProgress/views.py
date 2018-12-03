@@ -34,11 +34,11 @@ def badge_update(request):
 
             serializer = serializer.updateBadge(serializer.instance, request.data)
             return Response({
-                'status': 'Success',
+                'success': 'true',
                 'message': 'Badge updated successfully.'
             }, status=status.HTTP_200_OK)
         return Response({
-            'status': 'Bad request', 
+            'success': 'false', 
             'message': 'Badge could not be updated with received data.'
         }, status=status.HTTP_400_BAD_REQUEST)
 
@@ -56,11 +56,11 @@ def progress_update(request):
         if serializer:
             serializer = serializer.updateProgress(serializer.instance, request.data)
             return Response({
-                'status': 'Success',
+                'success': 'true',
                 'message': 'Progress updated successfully.'
             }, status=status.HTTP_200_OK)
         return Response({
-            'status': 'Bad request', 
+            'success': 'false', 
             'message': 'Progress could not be updated with received data.'
         }, status=status.HTTP_400_BAD_REQUEST)
        

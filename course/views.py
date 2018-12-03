@@ -35,9 +35,12 @@ def course_register(request):
             
             course = serializer.create(serializer.validated_data)
             course.save()
-            return Response(serializer.validated_data, status=status.HTTP_201_CREATED)
+            return Response({
+                'success': 'true', 
+                'message': 'Course registered successfully.'
+            }, status=status.HTTP_201_CREATED)
         return Response({
-            'status': 'Bad request', 
+            'success': 'false', 
             'message': 'Course could not be created with received data.'
         }, status=status.HTTP_400_BAD_REQUEST)
 
@@ -50,12 +53,12 @@ def course_delete(request):
         if serializer.is_valid():
             course = serializer.delete(serializer.validated_data)
             return Response({
-                'status': 'Success',
+                'success': 'true',
                 'message': 'Course deleted.'
             }, status=status.HTTP_200_OK)
         return Response({
-            'status': 'Bad request', 
-            'message': 'Course could not be created with received data.'
+            'success': 'false', 
+            'message': 'Course could not be deleted with received data.'
         }, status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -71,10 +74,10 @@ def course_update(request):
             
             serializer = serializer.update(serializer.instance, serializer.validated_data)
             return Response({
-                'status': 'Success',
+                'success': 'true',
                 'message': 'Course updated successfully.'
             }, status=status.HTTP_200_OK)
         return Response({
-            'status': 'Bad request', 
+            'success': 'false', 
             'message': 'Course could not be updated with received data.'
         }, status=status.HTTP_400_BAD_REQUEST)
