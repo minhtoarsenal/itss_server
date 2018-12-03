@@ -80,3 +80,30 @@ class UserProgressSerializer(DynamicFieldsUserProgressSerializer):
 
         return instance
         
+    def deleteProgress(self, instance, validated_data):
+        progresses_data = validated_data.pop('m_apProgresses')
+        instance.m_iUserID = validated_data.get('m_iUserID', instance.m_iUserID)
+        instance.m_iExp = validated_data.get('m_iExp', instance.m_iExp)
+        instance.save()
+
+        for progress_data in progresses_data:
+            progress_data_url = progress_data.get('m_sCourseUrl', None)
+            try:
+                progress = Progress.objects.get(m_sCourseUrl=progress_data_url).delete()
+            except Progress.DoesNotExist:
+                return 
+        return instance
+
+    def deleteBadge(self, instance, validated_data):
+        badges_data = validated_data.pop('m_asBadges')
+        instance.m_iUserID = validated_data.get('m_iUserID', instance.m_iUserID)
+        instance.m_iExp = validated_data.get('m_iExp', instance.m_iExp)
+        instance.save()
+
+        for badge_data in badges_data:
+            badge_data_id = progress_data.get('id', None)
+            try:
+                progress = Badge.objects.get(id=badge_data_id).delete()
+            except Badge.DoesNotExist:
+                return 
+        return instance

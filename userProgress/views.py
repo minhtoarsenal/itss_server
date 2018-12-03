@@ -66,3 +66,47 @@ def progress_update(request):
         }, status=status.HTTP_400_BAD_REQUEST)
        
 
+@api_view(['POST'])
+def progress_delete(request):
+    if request.method == 'POST':
+        userID = request.data.get('m_iUserID', None)
+        userProgress = UserProgress.objects.get(m_iUserID=userID)
+        userProgress.save()
+        
+        fields = ('id', 'm_iUserID', 'm_iExp', 'm_asBadges', 'm_apProgresses')
+    
+        serializer = UserProgressSerializer(userProgress, fields=fields)
+        deleted_serializer = serializer.deleteProgress(serializer.instance, request.data)
+    
+        if deleted_serializer:
+            return Response({
+                'success': 'true',
+                'message': 'Progress deleted successfully.'
+            }, status=status.HTTP_200_OK)
+        return Response({
+            'success': 'false', 
+            'message': 'Progress could not be deleted with received data.'
+        }, status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['POST'])
+def badge_delete(request):
+    if request.method == 'POST':
+        userID = request.data.get('m_iUserID', None)
+        userProgress = UserProgress.objects.get(m_iUserID=userID)
+        userProgress.save()
+        
+        fields = ('id', 'm_iUserID', 'm_iExp', 'm_asBadges', 'm_apProgresses')
+    
+        serializer = UserProgressSerializer(userProgress, fields=fields)
+        deleted_serializer = serializer.deleteBadge(serializer.instance, request.data)
+    
+        if deleted_serializer:
+            return Response({
+                'success': 'true',
+                'message': 'Badge deleted successfully.'
+            }, status=status.HTTP_200_OK)
+        return Response({
+            'success': 'false', 
+            'message': 'Badge could not be deleted with received data.'
+        }, status=status.HTTP_400_BAD_REQUEST)
