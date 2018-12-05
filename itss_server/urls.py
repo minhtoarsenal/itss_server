@@ -25,9 +25,9 @@ from django.conf import settings
 from course.views import course_list, course_register, course_delete, course_update, get_course_by_name
 from userProgress.views import userProgress_list, badge_update, progress_update, progress_delete
 from rest_framework.documentation import include_docs_urls
-from rest_framework_swagger.views import get_swagger_view
+# from rest_framework_swagger.views import get_swagger_view
 
-schema_view = get_swagger_view(title='ITSS Project API')
+# schema_view = get_swagger_view(title='ITSS Project API')
 
 
 urlpatterns = [
@@ -45,7 +45,7 @@ urlpatterns = [
     #     auth_views.password_reset_confirm, name='password_reset_confirm'),
     # url(r'^api/v1/users/reset/done/$', auth_views.password_reset_complete, name='password_reset_complete'),
     url(r'^api/v1/docs/', include_docs_urls(title='My API title')),
-    url(r'^api/v1/swagger', schema_view),
+    # url(r'^api/v1/swagger', schema_view),
     
     url(r'^api/v1/courses/list', course_list, name='list'),
     url(r'^api/v1/courses/register/', course_register, name='register'),
