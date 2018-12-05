@@ -36,12 +36,12 @@ def course_register(request):
             course = serializer.create(serializer.validated_data)
             course.save()
             return Response({
-                'success': 'true', 
-                'message': 'Course registered successfully.'
+                'success': True, 
+                'msg': 'Course registered successfully.'
             }, status=status.HTTP_200_OK)
         return Response({
-            'success': 'false', 
-            'message': 'Course could not be created with received data.'
+            'success': False, 
+            'msg': 'Course could not be created with received data.'
         }, status=status.HTTP_200_OK)
 
 
@@ -53,12 +53,12 @@ def course_delete(request):
         if serializer.is_valid():
             course = serializer.delete(serializer.validated_data)
             return Response({
-                'success': 'true',
-                'message': 'Course deleted.'
+                'success': True,
+                'msg': 'Course deleted.'
             }, status=status.HTTP_200_OK)
         return Response({
-            'success': 'false', 
-            'message': 'Course could not be deleted with received data.'
+            'success': False, 
+            'msg': 'Course could not be deleted with received data.'
         }, status=status.HTTP_200_OK)
 
 
@@ -74,10 +74,10 @@ def course_update(request):
             
             serializer = serializer.update(serializer.instance, serializer.validated_data)
             return Response({
-                'success': 'true',
-                'message': 'Course updated successfully.'
+                'success': True,
+                'msg': 'Course updated successfully.'
             }, status=status.HTTP_200_OK)
         return Response({
-            'success': 'false', 
-            'message': 'Course could not be updated with received data.'
+            'success': False, 
+            'msg': 'Course could not be updated with received data.'
         }, status=status.HTTP_200_OK)

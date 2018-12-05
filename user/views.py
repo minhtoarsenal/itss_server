@@ -98,13 +98,13 @@ def user_register(request):
             user.save()
             serializer = UserSerializer(user)
             return Response({
-                    "success": 'true',
-                    "message": "User registered successfully"
+                    "success": True,
+                    "msg": "User registered successfully"
             }, status=status.HTTP_200_OK)
 
         return Response({
-            'success': 'false',
-            'message': serializer.errors
+            'success': False,
+            'msg': serializer.errors
         }, status=status.HTTP_200_OK)
 
 
@@ -130,7 +130,7 @@ def user_authenticate(request):
                 serializer = UserProgressSerializer(userProgress, fields=fields)
 
                 return Response({
-                    'success': 'true', 
+                    'success': True, 
                     'admin': user.m_isAdmin,
                     'progress': serializer.data
                 }, status=status.HTTP_200_OK)
@@ -146,7 +146,7 @@ def user_authenticate(request):
                 userProgress.save()
                 new_serializer = UserProgressSerializer(userProgress, fields=fields)
                 return Response({
-                    'success': 'true', 
+                    'success': True, 
                     'admin': user.m_isAdmin,
                     'progress': new_serializer.data
                 }, status=status.HTTP_200_OK)
@@ -154,8 +154,8 @@ def user_authenticate(request):
  
         else:
             return Response({
-                'success': 'false',
-                'message': 'Wrong username or password'
+                'success': False,
+                'msg': 'Wrong username or password'
             }, status=status.HTTP_200_OK)
 
 
@@ -177,13 +177,13 @@ def user_changePass(request):
             user.save()
             serializer = UserSerializer(user)    
             return Response({ 
-                'success': 'true', 
-                'message': 'Successfully changed user password' 
+                'success': True, 
+                'msg': 'Successfully changed user password' 
             }, status=status.HTTP_200_OK)
         else:
             return Response({ 
-                'success': 'false',
-                'message': 'Failed to change user password'
+                'success': False,
+                'msg': 'Failed to change user password'
             }, status=status.HTTP_200_OK)
       
 
@@ -198,13 +198,13 @@ def user_delete(request):
         if user is not None:
             user.delete()
             return Response({
-                'success': 'true',
-                'message': 'User deleted.'
+                'success': True,
+                'msg': 'User deleted.'
             }, status=status.HTTP_200_OK)
         else: 
             return Response({
-            'success': 'false',
-            'message': 'Username/password combination invalid.'
+            'success': False,
+            'msg': 'Username/password combination invalid.'
         }, status=status.HTTP_200_OK)
 
 
@@ -214,7 +214,7 @@ def user_delete_all(request):
         all_user = User.objects.all()
         all_user.delete()
         return Response({
-            'success': 'true',
-            'message': 'All users deleted.'
+            'success': True,
+            'msg': 'All users deleted.'
         }, status=status.HTTP_200_OK)
     

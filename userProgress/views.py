@@ -34,12 +34,12 @@ def badge_update(request):
 
             serializer = serializer.updateBadge(serializer.instance, request.data)
             return Response({
-                'success': 'true',
-                'message': 'Badge updated successfully.'
+                'success': True,
+                'msg': 'Badge updated successfully.'
             }, status=status.HTTP_200_OK)
         return Response({
-            'success': 'false', 
-            'message': 'Badge could not be updated with received data.'
+            'success': False, 
+            'msg': 'Badge could not be updated with received data.'
         }, status=status.HTTP_200_OK)
 
 
@@ -57,12 +57,12 @@ def progress_update(request):
             
             serializer = serializer.updateProgress(serializer.instance, request.data)
             return Response({
-                'success': 'true',
-                'message': 'Progress updated successfully.'
+                'success': True,
+                'msg': 'Progress updated successfully.'
             }, status=status.HTTP_200_OK)
         return Response({
-            'success': 'false', 
-            'message': 'Progress could not be updated with received data.'
+            'success': False, 
+            'msg': 'Progress could not be updated with received data.'
         }, status=status.HTTP_200_OK)
        
 
@@ -80,12 +80,12 @@ def progress_delete(request):
     
         if deleted_serializer:
             return Response({
-                'success': 'true',
-                'message': 'Progress deleted successfully.'
+                'success': True,
+                'msg': 'Progress deleted successfully.'
             }, status=status.HTTP_200_OK)
         return Response({
-            'success': 'false', 
-            'message': 'Progress could not be deleted with received data.'
+            'success': False, 
+            'msg': 'Progress could not be deleted with received data.'
         }, status=status.HTTP_200_OK)
 
 
@@ -103,10 +103,10 @@ def badge_delete(request):
     
         if deleted_serializer:
             return Response({
-                'success': 'true',
-                'message': 'Badge deleted successfully.'
+                'success': True,
+                'msg': 'Badge deleted successfully.'
             }, status=status.HTTP_200_OK)
         return Response({
-            'success': 'false', 
-            'message': 'Badge could not be deleted with received data.'
+            'success': True, 
+            'msg': 'Badge could not be deleted with received data.'
         }, status=status.HTTP_200_OK)
