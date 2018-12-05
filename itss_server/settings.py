@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'userProgress',
     'django.contrib.admin',
     'django.contrib.auth',
+    'rest_framework_swagger',
     
 ]
 
@@ -81,6 +82,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'user.CorsMiddleware',
+    'course.CorsMiddleware',
+    'userProgress.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'itss_server.urls'
