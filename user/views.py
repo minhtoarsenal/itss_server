@@ -100,12 +100,12 @@ def user_register(request):
             return Response({
                     "success": 'true',
                     "message": "User registered successfully"
-            }, status=status.HTTP_201_CREATED)
+            }, status=status.HTTP_200_OK)
 
         return Response({
             'success': 'false',
             'message': serializer.errors
-        }, status=status.HTTP_400_BAD_REQUEST)
+        }, status=status.HTTP_200_OK)
 
 
 @api_view(['POST'])
@@ -133,7 +133,7 @@ def user_authenticate(request):
                     'success': 'true', 
                     'admin': user.m_isAdmin,
                     'progress': serializer.data
-                }, status=status.HTTP_202_ACCEPTED)
+                }, status=status.HTTP_200_OK)
             except ObjectDoesNotExist:
                 # userProgress = UserProgress.createUserProgress(userID)
                 initiated_value = {
@@ -149,14 +149,14 @@ def user_authenticate(request):
                     'success': 'true', 
                     'admin': user.m_isAdmin,
                     'progress': new_serializer.data
-                }, status=status.HTTP_202_ACCEPTED)
+                }, status=status.HTTP_200_OK)
             # elif userProgress: 
  
         else:
             return Response({
                 'success': 'false',
                 'message': 'Wrong username or password'
-            }, status=status.HTTP_401_UNAUTHORIZED)
+            }, status=status.HTTP_200_OK)
 
 
 
@@ -184,7 +184,7 @@ def user_changePass(request):
             return Response({ 
                 'success': 'false',
                 'message': 'Failed to change user password'
-            }, status=status.HTTP_401_UNAUTHORIZED)
+            }, status=status.HTTP_200_OK)
       
 
 @api_view(['POST'])
@@ -205,7 +205,7 @@ def user_delete(request):
             return Response({
             'success': 'false',
             'message': 'Username/password combination invalid.'
-        }, status=status.HTTP_401_UNAUTHORIZED)
+        }, status=status.HTTP_200_OK)
 
 
 @api_view(['POST'])

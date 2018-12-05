@@ -38,11 +38,11 @@ def course_register(request):
             return Response({
                 'success': 'true', 
                 'message': 'Course registered successfully.'
-            }, status=status.HTTP_201_CREATED)
+            }, status=status.HTTP_200_OK)
         return Response({
             'success': 'false', 
             'message': 'Course could not be created with received data.'
-        }, status=status.HTTP_400_BAD_REQUEST)
+        }, status=status.HTTP_200_OK)
 
 
 @api_view(['POST'])
@@ -59,7 +59,7 @@ def course_delete(request):
         return Response({
             'success': 'false', 
             'message': 'Course could not be deleted with received data.'
-        }, status=status.HTTP_400_BAD_REQUEST)
+        }, status=status.HTTP_200_OK)
 
 
 @api_view(['PUT'])
@@ -80,4 +80,4 @@ def course_update(request):
         return Response({
             'success': 'false', 
             'message': 'Course could not be updated with received data.'
-        }, status=status.HTTP_400_BAD_REQUEST)
+        }, status=status.HTTP_200_OK)

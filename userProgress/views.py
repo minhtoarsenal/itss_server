@@ -40,7 +40,7 @@ def badge_update(request):
         return Response({
             'success': 'false', 
             'message': 'Badge could not be updated with received data.'
-        }, status=status.HTTP_400_BAD_REQUEST)
+        }, status=status.HTTP_200_OK)
 
 
 @api_view(['PUT'])
@@ -63,7 +63,7 @@ def progress_update(request):
         return Response({
             'success': 'false', 
             'message': 'Progress could not be updated with received data.'
-        }, status=status.HTTP_400_BAD_REQUEST)
+        }, status=status.HTTP_200_OK)
        
 
 @api_view(['POST'])
@@ -86,7 +86,7 @@ def progress_delete(request):
         return Response({
             'success': 'false', 
             'message': 'Progress could not be deleted with received data.'
-        }, status=status.HTTP_400_BAD_REQUEST)
+        }, status=status.HTTP_200_OK)
 
 
 @api_view(['POST'])
@@ -109,4 +109,4 @@ def badge_delete(request):
         return Response({
             'success': 'false', 
             'message': 'Badge could not be deleted with received data.'
-        }, status=status.HTTP_400_BAD_REQUEST)
+        }, status=status.HTTP_200_OK)
