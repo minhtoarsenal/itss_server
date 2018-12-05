@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'rest_framework_swagger',
+    'corsheaders',
     
 ]
 
@@ -82,10 +83,16 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'user.CorsMiddleware',
-    'course.CorsMiddleware',
-    'userProgress.CorsMiddleware',
+    # 'user.CorsMiddleware',
+    # 'course.CorsMiddleware',
+    # 'userProgress.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.BrokenLinkEmailsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+ 
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True 
 
 ROOT_URLCONF = 'itss_server.urls'
 
