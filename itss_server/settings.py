@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'userProgress',
     'django.contrib.admin',
     'django.contrib.auth',
-    # 'rest_framework_swagger',
+    'rest_framework_swagger',
     'corsheaders',
     
 ]

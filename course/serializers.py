@@ -26,8 +26,8 @@ class CourseSerializer(serializers.ModelSerializer):
         return course 
 
     def delete(self, validated_data):
-        courseName = validated_data.pop('m_sCourseName') 
-        course = Course.objects.filter(m_sCourseName=courseName).delete()
+        courseName = validated_data.get('m_sCourseName') 
+        course = Course.objects.get(m_sCourseName=courseName).delete()
         return course         
 
     def update(self, instance, validated_data):

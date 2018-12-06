@@ -48,18 +48,19 @@ def course_register(request):
 @api_view(['POST'])
 def course_delete(request):
     if request.method == 'POST':
-        serializer = CourseSerializer(data=request.data)
-
-        if serializer.is_valid():
-            course = serializer.delete(serializer.validated_data)
+        # serializer = CourseSerializer(data=request.data)
+        courseName = request.data.get('m_sCourseName') 
+        try: 
+            Course.objects.get(m_sCourseName=courseName).delete()
             return Response({
                 'success': True,
                 'msg': 'Course deleted.'
             }, status=status.HTTP_200_OK)
-        return Response({
-            'success': False, 
-            'msg': 'Course could not be deleted with received data.'
-        }, status=status.HTTP_200_OK)
+        except Course.DoesNotExist:
+            return Response({
+                'success': False, 
+                'msg': 'Course could not be deleted with received data.'
+            }, status=status.HTTP_200_OK)
 
 
 @api_view(['PUT'])
