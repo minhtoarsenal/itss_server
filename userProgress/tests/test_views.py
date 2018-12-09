@@ -10,7 +10,7 @@ from rest_framework import response
 class UserProgressListViewTest(TestCase):
     @classmethod
     def setUpTestData(cls):
-        user = User.objects.create_user(m_sEmail="test@gmail.com", m_sUsername="test", password="test")
+        user = User.objects.create_user(m_sEmail="test@gmail.com", m_sUsername="test", m_sPassword="test")
         userProgress = UserProgress.objects.create(m_iUserID=1, m_iExp=0, user=user)
         userProgress.save()
         num_of_progresses = 3 
@@ -43,7 +43,7 @@ class UserProgressListViewTest(TestCase):
 class UpdateDeleteProgressViewTest(TestCase):
     
     def setUp(self):
-        user = User.objects.create_user(m_sEmail="test@gmail.com", m_sUsername="test", password="test")
+        user = User.objects.create_user(m_sEmail="test@gmail.com", m_sUsername="test", m_sPassword="test")
         userProgress = UserProgress.objects.create(m_iUserID=1, m_iExp=0, user=user)
         userProgress.save()
         num_of_progresses = 3 

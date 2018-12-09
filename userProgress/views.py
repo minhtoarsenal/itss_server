@@ -110,3 +110,15 @@ def badge_delete(request):
             'success': True, 
             'msg': 'Badge could not be deleted with received data.'
         }, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+def progress_delete_all(request):
+    if request.method == 'POST':
+        all_progress = UserProgress.objects.all()
+        all_progress.delete()
+        return Response({
+            'success': True,
+            'msg': 'All Progress deleted.'
+        }, status=status.HTTP_200_OK)
+    

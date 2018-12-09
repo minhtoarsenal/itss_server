@@ -23,7 +23,7 @@ from user.views import user_changePass, user_delete, user_delete_all
 from django.conf.urls.static import static 
 from django.conf import settings
 from course.views import course_list, course_register, course_delete, course_update, get_course_by_name
-from userProgress.views import userProgress_list, badge_update, progress_update, progress_delete
+from userProgress.views import userProgress_list, badge_update, progress_update, progress_delete, progress_delete_all
 from rest_framework.documentation import include_docs_urls
 from rest_framework_swagger.views import get_swagger_view
 
@@ -57,6 +57,7 @@ urlpatterns = [
     url(r'^api/v1/userProgresses/updateBadge/', badge_update, name='updateBadge'),
     url(r'^api/v1/userProgresses/updateProgress/', progress_update, name='updateProgress'),
     url(r'^api/v1/userProgresses/deleteProgress/', progress_delete, name='deleteProgress'),
+    url(r'^api/v1/userProgresses/deleteAllProgress/', progress_delete_all, name='deleteProgressAll'),
     
     
    

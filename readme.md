@@ -38,8 +38,7 @@ Quit the server with CONTROL-C.
 
 - Register User
 
-![user register]
-(/images/user_register.png)
+![user register](https://github.com/minhtoarsenal/itss_server/blob/master/images/user_register.png)
 
 - Change Password User
 
@@ -93,7 +92,8 @@ Quit the server with CONTROL-C.
 
 
 
-
-
-
+How to run unit test
+```
+python manage.py test
+```
 

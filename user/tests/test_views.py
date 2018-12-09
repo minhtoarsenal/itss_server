@@ -16,7 +16,7 @@ class UserListViewTest(TestCase):
             User.objects.create_user(
                 m_sUsername=f"minh{user_id}",
                 m_sEmail=f"minh{user_id}@gmail.com",
-                password=f"minh{user_id}"
+                m_sPassword=f"minh{user_id}"
             )
 
 
@@ -35,7 +35,7 @@ class UserListViewTest(TestCase):
 class UserRegisterViewTest(TestCase):
     
     def setUp(self):
-        self.user = User.objects.create_user(m_sUsername="dung", m_sEmail="dung@gmail.com", password="dung")
+        self.user = User.objects.create_user(m_sUsername="dung", m_sEmail="dung@gmail.com", m_sPassword="dung")
         
         self.user.save()
         
@@ -62,7 +62,7 @@ class UserRegisterViewTest(TestCase):
 class UserChangeViewTest(TestCase):
 
     def setup(self):
-        self.user = User.objects.create_user(m_sUsername="vuong", m_sEmail="vuong@gmail.com", password="vuong")
+        self.user = User.objects.create_user(m_sUsername="vuong", m_sEmail="vuong@gmail.com", m_sPassword="vuong")
 
         self.user.save()
 
@@ -78,7 +78,7 @@ class UserChangeViewTest(TestCase):
 
 class UserDeleteTest(TestCase):
     def setup(self):
-        self.user = User.objects.create_user(m_sUsername="vuong", m_sEmail="vuong@gmail.com", password="vuong")
+        self.user = User.objects.create_user(m_sUsername="vuong", m_sEmail="vuong@gmail.com", m_sPassword="vuong")
 
         self.user.save()
 

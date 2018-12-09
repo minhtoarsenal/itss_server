@@ -6,7 +6,7 @@ class TestUserModel(TestCase):
 
     @classmethod
     def setUpTestData(cls):
-        User.objects.create_user(m_sEmail="vuong@gmail.com", m_sUsername="vuong", password="vuong")
+        User.objects.create_user(m_sEmail="vuong@gmail.com", m_sUsername="vuong", m_sPassword="vuong")
         
     def test_username_label(self):
         user = User.objects.get(user_id=1)

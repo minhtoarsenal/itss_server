@@ -8,7 +8,7 @@ class TestUserModel(TestCase):
 
     @classmethod
     def setUpTestData(cls):
-        user = User.objects.create_user(m_sEmail="test@gmail.com", m_sUsername="test", password="test")
+        user = User.objects.create_user(m_sEmail="test@gmail.com", m_sUsername="test", m_sPassword="test")
         userProgress = UserProgress.objects.create(m_iUserID=1, m_iExp=0, user=user)
         num_of_progresses = 3 
         num_of_badges = 3
