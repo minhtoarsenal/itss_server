@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'rest_framework_swagger',
     'corsheaders',
-    
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackEnd' # during development only 
