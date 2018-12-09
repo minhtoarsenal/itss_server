@@ -34,8 +34,7 @@ Quit the server with CONTROL-C.
 
 - Show User List
 
-![user list]
-(/images/user_list.png)
+![user list](https://github.com/minhtoarsenal/itss_server/blob/master/images/user_list.png)
 
 - Register User
 
@@ -44,65 +43,53 @@ Quit the server with CONTROL-C.
 
 - Change Password User
 
-![user change password]
-(/images/user_changePass.png)
+![user change password](https://github.com/minhtoarsenal/itss_server/blob/master/images/user_changePass.png)
 
 - Authenticate and create User Progress
 
-![user authenticate]
-(/images/user_authenticate.png)
+![user authenticate](https://github.com/minhtoarsenal/itss_server/blob/master/images/user_authenticate.png)
 
 - Delete User 
 
-![user delete]
-(/images/user_delete.png)
+![user delete](https://github.com/minhtoarsenal/itss_server/blob/master/images/user_delete.png)
 
 
 - Show Course List 
 
 
-![Course List]
-(/images/course_list.png)
+![Course List](https://github.com/minhtoarsenal/itss_server/blob/master/images/course_list.png)
 
 - Register Course 
 
-![course register]
-(/images/course_register.png)
+![course register](https://github.com/minhtoarsenal/itss_server/blob/master/images/course_register.png)
 
 - Update Module Course
 
-![course update]
-(/images/course_update.png)
+![course update](https://github.com/minhtoarsenal/itss_server/blob/master/images/course_update.png)
 
 - Get Course By Name
 
-![get course by name]
-(/images/course_get_by_name.png)
+![get course by name](https://github.com/minhtoarsenal/itss_server/blob/master/images/course_get_by_name.png)
 
 - Delete Course
 
-![delete course]
-(/images/course_delete.png)
+![delete course](https://github.com/minhtoarsenal/itss_server/blob/master/images/course_delete.png)
 
 - Show User Progress List 
 
-![User Progress List]
-(/images/userProgress_list.png)
+![User Progress List](https://github.com/minhtoarsenal/itss_server/blob/master/images/userProgress_list.png)
 
 - Update Progress 
 
-![update progress]
-(/images/userProgress_updateProgress.png)
+![update progress](https://github.com/minhtoarsenal/itss_server/blob/master/images/userProgress_updateProgress.png)
 
 - Update Badge
 
-![update badge]
-(/images/userProgress_updateBadge.png)
+![update badge](https://github.com/minhtoarsenal/itss_server/blob/master/images/userProgress_updateBadge.png)
 
 - Delete Progress
 
-![delete Progress]
-(/images/userProgress_deleteProgress.png)
+![delete Progress](https://github.com/minhtoarsenal/itss_server/blob/master/images/userProgress_deleteProgress.png)
 
 
 
