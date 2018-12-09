@@ -46,7 +46,7 @@ class UserProgressSerializer(DynamicFieldsUserProgressSerializer):
 
 
     def updateBadge(self, instance, validated_data):
-        badges_data = validated_data.pop('m_asBadges')
+        badges_data = validated_data.get('m_asBadges')
         instance.m_iUserID = validated_data.get('m_iUserID', instance.m_iUserID)
         instance.m_iExp = validated_data.get('m_iExp', instance.m_iExp)
         instance.save()

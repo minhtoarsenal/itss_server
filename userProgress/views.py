@@ -78,7 +78,7 @@ def progress_delete(request):
         serializer = UserProgressSerializer(userProgress, fields=fields)
         deleted_serializer = serializer.deleteProgress(serializer.instance, request.data)
     
-        if deleted_serializer:
+        if deleted_serializer: 
             return Response({
                 'success': True,
                 'msg': 'Progress deleted successfully.'

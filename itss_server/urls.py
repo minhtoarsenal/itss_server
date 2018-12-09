@@ -47,16 +47,16 @@ urlpatterns = [
     url(r'^api/v1/docs/', include_docs_urls(title='My API title')),
     url(r'^api/v1/swagger', schema_view),
     
-    url(r'^api/v1/courses/list', course_list, name='list'),
-    url(r'^api/v1/courses/register/', course_register, name='register'),
-    url(r'^api/v1/courses/delete/', course_delete, name='delete'),
+    url(r'^api/v1/courses/list', course_list, name='listCourse'),
+    url(r'^api/v1/courses/register/', course_register, name='registerCourse'),
+    url(r'^api/v1/courses/delete/', course_delete, name='deleteCourse'),
     url(r'^api/v1/courses/update/', course_update, name='update'),
     url(r'^api/v1/courses/$', get_course_by_name, name='getCourseByName'),
 
-    url(r'^api/v1/userProgresses/list', userProgress_list, name='list'),
-    url(r'^api/v1/userProgresses/updateBadge', badge_update, name='updateBadge'),
-    url(r'^api/v1/userProgresses/updateProgress', progress_update, name='updateProcess'),
-    url(r'^api/v1/userProgresses/deleteProgress', progress_delete, name='deleteProcess'),
+    url(r'^api/v1/userProgresses/list', userProgress_list, name='listProgress'),
+    url(r'^api/v1/userProgresses/updateBadge/', badge_update, name='updateBadge'),
+    url(r'^api/v1/userProgresses/updateProgress/', progress_update, name='updateProgress'),
+    url(r'^api/v1/userProgresses/deleteProgress/', progress_delete, name='deleteProgress'),
     
     
    

@@ -103,8 +103,8 @@ def user_register(request):
             }, status=status.HTTP_200_OK)
 
         return Response({
-            'success': False,
-            'msg': serializer.errors
+            "success": False,
+            "msg": serializer.errors
         }, status=status.HTTP_200_OK)
 
 
@@ -130,9 +130,9 @@ def user_authenticate(request):
                 serializer = UserProgressSerializer(userProgress, fields=fields)
 
                 return Response({
-                    'success': True, 
-                    'admin': user.m_isAdmin,
-                    'progress': serializer.data
+                    "success": True, 
+                    "admin": user.m_isAdmin,
+                    "progress": serializer.data
                 }, status=status.HTTP_200_OK)
             except ObjectDoesNotExist:
                 # userProgress = UserProgress.createUserProgress(userID)
@@ -154,8 +154,8 @@ def user_authenticate(request):
  
         else:
             return Response({
-                'success': False,
-                'msg': 'Wrong username or password'
+                "success": False,
+                "msg": "Wrong username or password"
             }, status=status.HTTP_200_OK)
 
 
@@ -163,13 +163,13 @@ def user_authenticate(request):
 @api_view(['PUT'])
 def user_changePass(request):
     if request.method == 'PUT':
-        data = json.loads(request.body)
+        # data = json.loads(request.body)
 
-        username = data.get('m_sUsername', None)
-        old_password = data.get('m_sOldPassword', None)
-        new_password = data.get('m_sNewPassword', None)
+        username = request.data.get('m_sUsername', None)
+        old_password = request.data.get('m_sPassword', None)
+        new_password = request.data.get('m_sNewPassword', None)
 
-        user = authenticate(username=username, password=old_password)
+        user = authenticate(m_sUsername=username, password=old_password)
 
       
         if user is not None:
@@ -177,13 +177,13 @@ def user_changePass(request):
             user.save()
             serializer = UserSerializer(user)    
             return Response({ 
-                'success': True, 
-                'msg': 'Successfully changed user password' 
+                "success": True, 
+                "msg": "Successfully changed user password" 
             }, status=status.HTTP_200_OK)
         else:
             return Response({ 
-                'success': False,
-                'msg': 'Failed to change user password'
+                "success": False,
+                "msg": "Failed to change user password"
             }, status=status.HTTP_200_OK)
       
 
@@ -193,7 +193,7 @@ def user_delete(request):
         username = request.data.get('m_sUsername', None)
         password = request.data.get('m_sPassword', None)
 
-        user = authenticate(m_sUsername=username, m_sPassword=password)
+        user = authenticate(m_sUsername=username, password=password)
 
         if user is not None:
             user.delete()
